@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pokémon Mini Master Set Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css?v=20260929c" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="top">
+        <div class="brand">
+          <p class="eyebrow">Pokémon TCG · collection tracker</p>
+          <h1>Mini Master Sets</h1>
+          <p class="lede">
+            Five binders, in era order. Each mini set starts on a fresh 9-pocket page, and each card is listed once.
+          </p>
+        </div>
+        <div class="hero-stats">
+          <div class="ring-wrap">
+            <svg class="ring" viewBox="0 0 120 120" aria-hidden="true">
+              <circle class="ring-bg" cx="60" cy="60" r="52" />
+              <circle class="ring-fg" cx="60" cy="60" r="52" />
+            </svg>
+            <div class="ring-label">
+              <strong id="overall-pct">0%</strong>
+              <span>complete</span>
+            </div>
+          </div>
+          <dl class="stat-grid">
+            <div>
+              <dt>Owned</dt>
+              <dd id="owned-count">0</dd>
+            </div>
+            <div>
+              <dt>Unique cards</dt>
+              <dd id="unique-count">0</dd>
+            </div>
+            <div>
+              <dt>Mini sets</dt>
+              <dd id="set-count">0</dd>
+            </div>
+            <div>
+              <dt>Binders</dt>
+              <dd id="era-count">0</dd>
+            </div>
+          </dl>
+        </div>
+      </header>
+
+      <div class="toolbar">
+        <label class="search">
+          <span class="sr-only">Search cards</span>
+          <input id="search" type="search" placeholder="Search name, number, or set…" autocomplete="off" />
+        </label>
+        <div class="filters" role="group" aria-label="Collection filter">
+          <button class="chip active" data-filter="all">All</button>
+          <button class="chip" data-filter="missing">Missing</button>
+          <button class="chip" data-filter="owned">Owned</button>
+        </div>
+        <div class="toolbar-actions">
+          <button class="ghost" id="expand-all">Expand all</button>
+          <button class="ghost" id="collapse-all">Collapse</button>
+          <button class="ghost" id="export-btn">Export</button>
+          <label class="ghost file-btn">
+            Import
+            <input id="import-file" type="file" accept="application/json" hidden />
+          </label>
+        </div>
+      </div>
+
+      <div class="layout">
+        <nav class="era-nav" id="era-nav" aria-label="Binders"></nav>
+        <main id="eras"></main>
+      </div>
+    </div>
+
+    <div class="toast" id="toast" hidden></div>
+
+    <script src="data.js?v=20260930"></script>
+    <script src="app.js?v=20260929d"></script>
+  </body>
+</html>
